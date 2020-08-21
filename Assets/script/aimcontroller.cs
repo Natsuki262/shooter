@@ -20,8 +20,8 @@ public class aimcontroller : MonoBehaviour
         //メイン📷上のマウスポインタからRayを飛ばす。
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        int layMask = 1;
-        float maxDistance = 10;
+        //int layMask = 1;
+        //float maxDistance = 10;
 
         //RaycastHit2D hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance, layMask);
        /*if(hit.collider)
