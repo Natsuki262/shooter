@@ -29,6 +29,10 @@ public class aimcontroller : MonoBehaviour
             Debug.Log(hit.collider.gameObject.name);
         }*/
         //mouse= Input.mousePosition.x;
+        if(Input.GetMouseButton(0))
+        {
+            Debug.Log("hit");
+        }
 
     }
 }
