@@ -17,7 +17,18 @@ public class aimcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         //mouse= Input.mousePosition.x;
+        //メイン📷上のマウスポインタからRayを飛ばす。
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        int layMask = 1;
+        float maxDistance = 10;
+
+        //RaycastHit2D hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance, layMask);
+       /*if(hit.collider)
+        {
+            Debug.Log(hit.collider.gameObject.name);
+        }*/
+        //mouse= Input.mousePosition.x;
 
     }
 }
