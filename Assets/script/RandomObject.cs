@@ -10,7 +10,7 @@ public class RandomObject : MonoBehaviour
     public int m_targetCounter;
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame

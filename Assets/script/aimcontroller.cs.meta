@@ -5,6 +5,8 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - cursor: {fileID: 2800000, guid: 60b3a57601839224c86b0807307bb942, type: 3}
+  - target: {fileID: 3913427615088239269, guid: 90c4a17510b1cf5479243fdde03d7a5a,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
