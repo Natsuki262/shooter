@@ -23,19 +23,21 @@ public class aimcontroller : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         int layMask = 1;
-       float maxDistance = 10;
+        float maxDistance = 10;
 
         RaycastHit2D hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance, layMask);
-       if(hit.collider)
+        if (hit.collider)
         {
             Debug.Log(hit.collider.gameObject.name);
-        }
-        mouse= Input.mousePosition.x;
-        if(Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("hit");
-            Destroy(target);
-        }
+            Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.green);
+            mouse = Input.mousePosition.x;
 
+            if (Input.GetMouseButtonDown(0))
+            {
+                //Debug.Log("hit");
+                Destroy(hit.collider.gameObject);
+            }
+
+        }
     }
 }
