@@ -46,7 +46,7 @@ public class RandomObject : MonoBehaviour
         }*/
         for (int i = 0; i < m_position.Length; i++)//配列の長さ分回す
         {
-            Instantiate(target, m_position[i], Quaternion.identity);
+            Instantiate(target, m_position[i], Quaternion.identity);//targetをを配列のi番目から生成してく
 
         }
 
