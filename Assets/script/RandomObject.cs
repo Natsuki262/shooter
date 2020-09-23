@@ -8,11 +8,17 @@ public class RandomObject : MonoBehaviour
     // Start is called before the first frame update
     public GameObject target;
     public int m_targetCounter;
+   // private Rigidbody2D rb;
+
+    [SerializeField]
+    //public float m_speed;
 
     public Vector3[] m_position;//いくつずらすかのメンバー配列
     void Start()
     {
-        TargetInstanse();
+        //TargetInstanse();
+        //rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -21,7 +27,8 @@ public class RandomObject : MonoBehaviour
         /*float x = Random.Range(Screen.width * 0.1f, Screen.width * 0.9f);
         float y = Random.Range(Screen.height * 0.1f, Screen.height * 0.9f);
         Vector2 screenPoint = new Vector2(x, y);*/
-
+        //target.transform.position.xTranslate(-2f, 0, 0);
+        //rb.velocity = new Vector2(m_speed, rb.velocity.x);
     }
     void TargetInstanse()
     {
@@ -44,11 +51,11 @@ public class RandomObject : MonoBehaviour
             position += new Vector3(5, 0, 1);//ずつずらす
 
         }*/
-        for (int i = 0; i < m_position.Length; i++)//配列の長さ分回す
+        /*for (int i = 0; i < m_position.Length; i++)//配列の長さ分回す
         {
             Instantiate(target, m_position[i], Quaternion.identity);//targetをを配列のi番目から生成してく
 
-        }
+        }*/
 
 
     }

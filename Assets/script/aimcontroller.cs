@@ -10,7 +10,7 @@ public class aimcontroller : MonoBehaviour
     [SerializeField]
     private Texture2D cursor;
     [SerializeField] LayerMask m_targetLayer;
-    public GameObject target;
+    //public GameObject target;
     public int m_bulletCount;
 
     //Debug
@@ -19,7 +19,7 @@ public class aimcontroller : MonoBehaviour
     {
         Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.ForceSoftware);
         //cursorを自前のテクスチャデータに変更
-        this.target = GameObject.Find("target");
+        //this.target = GameObject.Find("target");
 
         //弾の数の初期化
         m_bulletCount = 5;
@@ -29,40 +29,51 @@ public class aimcontroller : MonoBehaviour
     void Update()
     {
         //弾が一つもなければ
-        if (m_bulletCount < 1)
+        /*if (m_bulletCount < 1)
         {
             return;
 
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) || m_bulletCount <= 0)
+        }*/
+        //リロードキーが押されかつ弾がゼロなら
+        if (Input.GetKeyDown(KeyCode.Space) )
         {
             m_bulletCount = 5;
             Debug.Log(m_bulletCount);
         }
-
-        if (Input.GetMouseButtonDown(0))
+        else if (m_bulletCount<1)
         {
-            //残弾を減らす
-            m_bulletCount-=1;
+            return;
+        }
 
-            //メイン📷上のマウスポインタからRayを飛ばす。
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            float maxDistance = 10;
+            if (Input.GetMouseButtonDown(0))
+            {
+                //残弾を減らす
+                m_bulletCount -= 1;
 
-            RaycastHit2D hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance, m_targetLayer);
+
+                //メイン📷上のマウスポインタからRayを飛ばす。
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                float maxDistance = 10;
+
+                RaycastHit2D   hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance, m_targetLayer);
 
             if (hit.collider)
             {
                 Debug.Log(hit.collider.gameObject.name);
                 Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.green);
-                //Debug.Log("hit");
-                Destroy(hit.collider.gameObject);
+                Debug.Log("hit");
                 mouse = Input.mousePosition.x;
+                //Destroy(hit.collider.gameObject);
+               
+                taget tgt = hit.collider.gameObject.GetComponent<taget>();
+                //衝突したコンポーネントのスクリプト取得
+                tgt.Hit();//targetスクリプトからHit関数
+
             }
         }
-        //リロードキーが押されかつ弾がゼロなら
-       
+
     }
 
     /*void aaa()内田先輩が書いたコード一例　参考
