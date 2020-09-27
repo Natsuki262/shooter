@@ -16,7 +16,7 @@ public class taget : MonoBehaviour
     aimcontroller script;
     [SerializeField] private GameObject pearentObject;
     //int score = 0;
-
+  
     //動き
     public void Move()
     {
@@ -52,6 +52,8 @@ public class taget : MonoBehaviour
         Destroy(gameObject);
         //score += 10;
         //Debug.Log(score);
+        ScoreManager score = GameObject.Find("ScoreManeger").GetComponent<ScoreManager>();
+        score.addScore();
         
 
     }
