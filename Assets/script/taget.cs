@@ -14,6 +14,8 @@ public class taget : MonoBehaviour
     //public GameObject target;
 
     aimcontroller script;
+    [SerializeField] private GameObject pearentObject;
+    //int score = 0;
 
     //動き
     public void Move()
@@ -30,9 +32,10 @@ public class taget : MonoBehaviour
     void Start()
     {
 
-       //Instantiate(target); 
+        //Instantiate(target); 
        
-        
+
+
     }
     void Update()
     {
@@ -41,12 +44,15 @@ public class taget : MonoBehaviour
     private void OnDestroy()
     {
       
-        //if()//
+        
 
     }
     public void Hit()
     {
         Destroy(gameObject);
+        //score += 10;
+        //Debug.Log(score);
+        
 
     }
 
