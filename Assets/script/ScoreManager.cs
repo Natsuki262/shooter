@@ -6,7 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField]public Text Scoretext;
     int score;
-    [SerializeField] public GameObject taget_prefab; 
+    
     // Start is called before the first frame update
     void Start()
     {
