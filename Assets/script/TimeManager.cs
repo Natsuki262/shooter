@@ -8,9 +8,12 @@ public class TimeManager : MonoBehaviour
     [SerializeField] public Text timeText;
 
     [SerializeField] float time = 60;
+    [SerializeField] GameObject timeOvertext;
     void Start()
     {
         GameObject.Find("Timer").GetComponent<Text>().text = ((int)time).ToString();
+        timeOvertext.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -28,6 +31,8 @@ public class TimeManager : MonoBehaviour
         {
             time = 0;
             Debug.Log(time);
+            timeOvertext.SetActive(true);
+
         }
     }
 }
