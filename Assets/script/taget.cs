@@ -7,7 +7,7 @@ public class taget : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     //的のスピード
-    private float speed;
+    public float speed;
     //的の動く方向
     public Vector3 Direction;
     //的のプレハブ情報
