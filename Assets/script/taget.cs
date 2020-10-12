@@ -27,7 +27,11 @@ public class taget : MonoBehaviour
     {
         
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+    }
+
 
     void Start()
     {

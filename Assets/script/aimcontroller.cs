@@ -13,6 +13,10 @@ public class aimcontroller : MonoBehaviour
     //public GameObject target;
     public int m_bulletCount;
 
+    private AudioSource audioSource;
+    [SerializeField] AudioClip m_shoot;
+    [SerializeField] AudioClip m_empty;
+    [SerializeField] AudioClip m_reload;
     //Debug
     float mouse;
     void Start()
@@ -23,6 +27,8 @@ public class aimcontroller : MonoBehaviour
 
         //弾の数の初期化
         m_bulletCount = 5;
+        audioSource = gameObject.AddComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -35,29 +41,31 @@ public class aimcontroller : MonoBehaviour
 
         }*/
         //リロードキーが押されかつ弾がゼロなら
-        if (Input.GetKeyDown(KeyCode.Space) )
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            audioSource.PlayOneShot(m_reload);
             m_bulletCount = 5;
             Debug.Log(m_bulletCount);
         }
-        else if (m_bulletCount<1)
+        else if (m_bulletCount < 1)
         {
+            //audioSource.PlayOneShot(m_empty);
             return;
         }
 
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                //残弾を減らす
-                m_bulletCount -= 1;
+        if (Input.GetMouseButtonDown(0))
+        {
+            //残弾を減らす
+            m_bulletCount -= 1;
 
 
-                //メイン📷上のマウスポインタからRayを飛ばす。
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //メイン📷上のマウスポインタからRayを飛ばす。
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                float maxDistance = 10;
+            float maxDistance = 10;
 
-                RaycastHit2D   hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance, m_targetLayer);
+            RaycastHit2D hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance, m_targetLayer);
 
             if (hit.collider)
             {
@@ -66,10 +74,12 @@ public class aimcontroller : MonoBehaviour
                 Debug.Log("hit");
                 mouse = Input.mousePosition.x;
                 //Destroy(hit.collider.gameObject);
-               
+
                 taget tgt = hit.collider.gameObject.GetComponent<taget>();
                 //衝突したコンポーネントのスクリプト取得
                 tgt.Hit();//targetスクリプトからHit関数
+                audioSource.PlayOneShot(m_shoot);
+
 
             }
         }
