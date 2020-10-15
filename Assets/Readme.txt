@@ -10,3 +10,4 @@ prefab ‚É Animator Controller ‚â Animation ‚ª‚ ‚è‚Ü‚·BƒtƒHƒ‹ƒ_‚É®—‚µ‚Ü‚µ‚å‚¤
 Destroyoya
 taget
 inplse
+deverop
