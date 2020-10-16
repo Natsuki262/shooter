@@ -153,6 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1579256f7729d9440b1a43d426953e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 10
   Direction: {x: 0.01, y: 0, z: 0}
   pearentObject: {fileID: 0}
