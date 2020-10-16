@@ -53,7 +53,16 @@ public class taget : MonoBehaviour
     }
     public void Hit()
     {
-        Destroy(gameObject);
+        // ターゲットに付いているコンポーネントによって処理を分けている
+        ShootingTargetController target = GetComponent<ShootingTargetController>();
+        if (target)
+        {
+            target.Hit();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         //score += 10;
         //Debug.Log(score);
         ScoreManager score = GameObject.Find("ScoreManeger").GetComponent<ScoreManager>();
